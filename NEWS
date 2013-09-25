@@ -1,0 +1,25 @@
+ -*- mode: text; coding: utf-8 -*-
+2013-06-26  Matthias Kievernagel  mkiever/at/tlink/dot/de
+
+
+sdl unicode font view news
+--------------------------
+
+2013-09-23: (version 0.03)
+    Implemented a 'continuous' mode for glyph display
+    to accomodate fonts with large differences in
+    character width. This starts display with the first glyph
+    of the font and fits as much glyphs in a line
+    and as much lines in the window as possible.
+    You can only advance (using '>') to the following glyphs
+    until arriving at the last one. Next '>' will restart
+    with displaying the first glyphs.
+
+2013-07-05:
+    With the inclusion of a modified version of SDL_ttf
+    unicodeview can now display glyphs outside of the BMP.
+    Command line parameters allow to go to a specific page
+    directly and to select another character mapping
+    (necessary for glyphs outside the BMP).
+
+First packaging 26-06-2013.

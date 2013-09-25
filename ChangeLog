@@ -1,0 +1,23 @@
+ -*- mode: text; coding: utf-8 -*-
+2013-06-26  Matthias Kievernagel  mkiever/at/tlink/dot/de
+
+ChangeLog for sdl unicode font view
+-----------------------------------
+
+
+unicodeview (0.03)
+        * added a 'continuous' mode to the glyph display window
+          putting glyphs in lines while they fit.
+        * use getopt for command line parameters.
+
+unicodeview (0.02)
+        * added modified SDL_ttf.c/h in order to have 32-bit
+          glyph indices and be able to select another character mapping.
+        * extended page number to 3 hex digits.
+        * added 'page' command line parameter to move directly
+          to a specific glyph page.
+        * added 'charmap' command line parameter to select
+          a specific character mapping in the font.
+
+unicodeview (0.01)
+		* first packaging

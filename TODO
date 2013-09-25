@@ -1,0 +1,11 @@
+ -*- mode: text; coding: utf-8 -*-
+2013-09-09  Matthias Kievernagel  mkiever/at/tlink/dot/de
+
+
+unicodeview TODO list
+=====================
+
+
+ - handle window resize
+
+ - grid specification parameters for grid view

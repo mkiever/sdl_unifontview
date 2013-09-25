@@ -1,0 +1,124 @@
+ -*- mode: text; coding: utf-8 -*-
+2013-06-26  Matthias Kievernagel  mkiever/at/tlink/dot/de
+2013-09-25  Matthias Kievernagel  mkiever/at/tlink/dot/de
+
+
+
+README for sdl unicode font view
+--------------------------------
+
+These are the sources for unicodeview. A unicode font viewer
+for the SDL platform.
+
+This program is Copyright 2013 Matthias Kievernagel.
+It is distributed under the GPL version 2 license.
+For details see the file COPYING.
+
+The distribution contains modified versions of the files
+  SDL_ttf.h and SDL_ttf.c
+from the SDL_ttf package (version 2.0.11)
+which are Copyright (C) 1997-2012 Sam Lantinga <slouken@libsdl.org>
+See COPYING_SDL_ttf for details about their license.
+
+This is version 0.03. It is a very rough tool to look
+at the glyphs in a font using SDL. The gridded display of 16x16
+was chosen to accomodate unifont (http://czyborra.com/unifont/)
+which has 8x16 halfwidth and 16x16 fullwidth bitmap characters.
+Other fonts will probably not fit that grid and leave drawing artefacts.
+There are no other options for gridded display yet.
+
+I added a 'continuous' mode to look at other fonts. Mostly for
+the cases where the gridded display just does not work.
+In this mode glyphs will be added to a line while they fit.
+Currently you can only move to the next page, there is
+no moving back.
+
+Some interesting fonts to look at:
+  (Links checked 2013/09/24)
+  The above mentioned unifont: http://czyborra.com/unifont/
+  Aegean, Akkadian from http://users.teilar.gr/~g1951d/
+  Most of the glyphs are outside of the BMP so use
+    unicodeview -p 0x100 -m 3,10 'aegean.ttf'
+    resp.
+    unicodeview -p 0x120 -m 3,10 'akkadian.ttf'
+  to view the interesting pages.
+
+  Lots of fonts to find:
+    http://www.alanwood.net/unicode/index.html
+
+
+Usage
+-----
+
+   unicodeview [-g] [-c] [-p 'page'] [-m 'charmap'] 'ttf-font-file'
+
+This will open the TTF file and display the glyphs of the font.
+'-g' selects gridded view which shows the glyphs
+in pages of 256 glyphs each (in a 16x16 grid).
+At the top the page number is displayed as 3 hex digits.
+The starting page can be given with the '-p' parameter.
+Be careful to give hex numbers with the leading '0x'.
+Otherwise it will be interpreted as decimal.
+Gridded view is the default so '-g' normally is not
+necessary.
+
+'-c' selects continuous view mode
+which puts glyphs in lines as long as they fit
+and continues with the next glyph in new lines and pages.
+The display ends at the last glyph and wraps
+to the first glyph on the next page. You cannot
+move backward in this mode. Use this mode if the
+16x16 grid does not give satisfying results.
+
+The '-m' parameter is a pair of numbers 'p,e',
+platform-id 'p' and encoding-id 'e' to select a character mapping
+in the font. Font files can contain more than one mapping of indices
+to glyphs. The default mapping chosen by SDL_ttf
+might not be what you want. Most of the time it chooses
+'3,1' which is good for 16-bit Unicode (BMP).
+Fonts for ancient scripts with code points behond 0x10000
+may use '3,10'. So you should try this if your font
+contains such glyphs. To find out about the character
+mappings contained in a font you can use the utility
+'ttfdump'. Look out for 'cmap' in the output.
+If you follow this you can then find the corresponding
+'SubTable's and see which glyphs are accessible with which
+mapping. A resource to find out about the meaning of
+the platform and encoding IDs is the header 'ttnameid.h'
+of the freetype library.
+
+
+Key bindings
+------------
+
+You can browse to other pages using '<' and '>'
+(only '>' works in continuous mode).
+The pages wrap at index '0xFFF' in gridded mode
+and at the last glyph in continuous mode.
+Use 'q' to quit the program.
+
+
+Build and install
+-----------------
+
+To build and install the program use the usual
+autoconf commands:
+
+  > ./configure
+  > make
+  > make install
+
+Building requisites are installed development files of SDL,
+of the freetype2 library and of SDL_draw, a small drawing library for SDL.
+It also uses a modified version of SDL_ttf 2.0.11, the ttf library
+for SDL by Sam Lantinga. The modified sources are included here.
+You can find the Copyright for SDL_ttf in the file COPYING_SDL_ttf.
+
+I tested using the following versions of the packages:
+  freetype2    -- 2.4.9  (debian 2.4.9-1.1)
+  libsdl1.2    -- 1.2.15 (debian 1.2.15-5)
+  SDL_draw     -- 1.2.13
+
+
+Have fun,
+Matthias Kievernagel
