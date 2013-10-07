@@ -248,7 +248,7 @@ int main ( int argc, char * argv[] ) {
         exit(1);
     }
 
-    err = _init_sdl(fontname, 64, platform_id, encoding_id);
+    err = _init_sdl(fontname, gridded ? 16 : 64, platform_id, encoding_id);
     if ( err != NULL ) {
         fprintf(stderr, "Init failed: %s\n", err);
         exit(1);

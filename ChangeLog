@@ -5,6 +5,8 @@ ChangeLog for sdl unicode font view
 -----------------------------------
 
 
+        * quick fix glyph size in gridded mode.
+        
 unicodeview (0.03)
         * added a 'continuous' mode to the glyph display window
           putting glyphs in lines while they fit.
@@ -20,4 +22,4 @@ unicodeview (0.02)
           a specific character mapping in the font.
 
 unicodeview (0.01)
-		* first packaging
+        * first packaging
