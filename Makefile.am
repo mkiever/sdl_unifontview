@@ -9,7 +9,5 @@ unicodeview_SOURCES=unicodeview.c \
 
 
 unicodeview_CFLAGS=`freetype-config --cflags`
-unicodeview_LDADD=-lfreetype -lSDL_draw -lSDLmain -lSDL
-
 
 EXTRA_DIST = COPYING_SDL_ttf

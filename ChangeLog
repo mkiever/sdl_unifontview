@@ -4,6 +4,8 @@
 ChangeLog for sdl unicode font view
 -----------------------------------
 
+        * update autotools (automake 1.14.1, autoconf 2.69).
+          fixed broken links from old autotools.
 
         * quick fix glyph size in gridded mode.
         
