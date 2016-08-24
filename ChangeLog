@@ -4,6 +4,8 @@
 ChangeLog for sdl unicode font view
 -----------------------------------
 
+        * more autotools renovations, prepared SDL2 build option.
+
         * update autotools (automake 1.14.1, autoconf 2.69).
           fixed broken links from old autotools.
 

@@ -12,17 +12,31 @@ AM_INIT_AUTOMAKE([-Wall -Werror foreign])
 # Checks for programs.
 AC_PROG_CC
 
+dnl SDL2 option
+AC_ARG_WITH(sdl2, [AC_HELP_STRING([--with-sdl2@<:@=no@:>@],
+                  [Build using SDL 2.0 instead of SDL 1.2.])],
+                  [], [with_sdl2=no])
+
 # Checks for libraries.
 # Library `-lm':
 AC_CHECK_LIB([m], [ceilf])
-# Library `-lSDL':
-AC_CHECK_LIB([SDL], [SDL_Init])
-# Library `-lSDLmain':
-AC_CHECK_LIB([SDLmain], [main])
+
+AS_IF([test "x$with_sdl2" != xno],
+    # Library `-lSDL2':
+    [AC_CHECK_LIB([SDL2], [SDL_Init]),
+     AC_SUBST(SDLCFLAGS, "`sdl2-config --cflags`")],
+    [# Library `-lSDL':
+     AC_CHECK_LIB([SDL], [SDL_Init]),
+     # Library `-lSDLmain':
+     AC_CHECK_LIB([SDLmain], [main]),
+     AC_SUBST(SDLCFLAGS, "`sdl-config --cflags`")]
+)
+
 # Library `-lSDL_draw':
 AC_CHECK_LIB([SDL_draw], [Draw_Line])
 # Library `-lfreetype':
 AC_CHECK_LIB([freetype], [FT_Init_FreeType])
+AC_SUBST(FTCFLAGS, "`freetype-config --cflags`")
 
 # Checks for header files.
 AC_FUNC_ALLOCA

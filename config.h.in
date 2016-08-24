@@ -1,4 +1,4 @@
-/* config.h.in.  Generated from configure.in by autoheader.  */
+/* config.h.in.  Generated from configure.ac by autoheader.  */
 
 /* Define to one of `_getb67', `GETB67', `getb67' for Cray-2 and Cray-YMP
    systems. This function is required for `alloca.c' support on those systems.
@@ -21,8 +21,17 @@
 /* Define to 1 if you have the `freetype' library (-lfreetype). */
 #undef HAVE_LIBFREETYPE
 
+/* Define to 1 if you have the `m' library (-lm). */
+#undef HAVE_LIBM
+
 /* Define to 1 if you have the `SDL' library (-lSDL). */
 #undef HAVE_LIBSDL
+
+/* Define to 1 if you have the `SDL2' library (-lSDL2). */
+#undef HAVE_LIBSDL2
+
+/* Define to 1 if you have the `SDLmain' library (-lSDLmain). */
+#undef HAVE_LIBSDLMAIN
 
 /* Define to 1 if you have the `SDL_draw' library (-lSDL_draw). */
 #undef HAVE_LIBSDL_DRAW
@@ -60,9 +69,6 @@
 
 /* Define to 1 if you have the <unistd.h> header file. */
 #undef HAVE_UNISTD_H
-
-/* Define to 1 if your C compiler doesn't accept -c and -o together. */
-#undef NO_MINUS_C_MINUS_O
 
 /* Name of package */
 #undef PACKAGE
