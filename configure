@@ -3867,7 +3867,6 @@ else
 fi
 
 
-
 # Checks for libraries.
 # Library `-lm':
 
@@ -3966,10 +3965,8 @@ fi
 ,
      SDLCFLAGS="`sdl2-config --cflags`"
 
-
 else
-
-     # Library `-lSDL':
+  # Library `-lSDL':
      { $as_echo "$as_me:${as_lineno-$LINENO}: checking for SDL_Init in -lSDL" >&5
 $as_echo_n "checking for SDL_Init in -lSDL... " >&6; }
 if ${ac_cv_lib_SDL_SDL_Init+:} false; then :
@@ -4058,8 +4055,8 @@ fi
      SDLCFLAGS="`sdl-config --cflags`"
 
 
-
 fi
+
 # Library `-lSDL_draw':
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for Draw_Line in -lSDL_draw" >&5
 $as_echo_n "checking for Draw_Line in -lSDL_draw... " >&6; }

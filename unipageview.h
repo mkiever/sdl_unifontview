@@ -23,7 +23,7 @@
 /* shows 256 glyphs of a font in a 8x8 matrix */
 
 
-#include <SDL/SDL.h>
+#include <SDL.h>
 #include "SDL_ttf.h"
 
 

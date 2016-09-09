@@ -22,8 +22,8 @@
 
 
 #include <stdlib.h>
-#include <SDL/SDL.h>
-#include <SDL/SDL_draw.h>
+#include <SDL.h>
+#include <SDL_draw.h>
 #include "SDL_ttf.h"
 
 #include <ft2build.h>
